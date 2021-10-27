@@ -15,7 +15,6 @@ node {
     stage('Test image') {
     /* Empty for test purposes */
 
-
     }
 
     stage('Push image') {
