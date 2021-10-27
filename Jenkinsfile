@@ -11,6 +11,12 @@ node {
 
         app = docker.build("terence.wong")
     }
+    
+    stage('Test image') {
+    /* Empty for test purposes */
+
+
+    }
 
     stage('Push image') {
         /* Referencing the AWS registry. Tagging with the Jenkins build number and the latest tag */
