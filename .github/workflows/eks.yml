@@ -23,23 +23,11 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
-    
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Deploy to Kubernetes cluster                                                                            
-      uses: kodermax/kubectl-aws-eks@master                                                                         
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}                                                       
-        RELEASE_IMAGE: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.RELEASE_REVISION }}
-      with:                                                                                                         
-        args: set image deployment/my-pod app=${{ env.RELEASE_IMAGE }} --record -n $KUBE_NAMESPACE   
-        
-    - name: verify deployment
-      uses: kodermax/kubectl-aws-eks@master
-      env:
-        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-      with:
-        args: rollout status deployment/my-app
-        
+      - name: helm deploy
+        uses: koslibpro/helm-eks-action@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+          command: helm upgrade --install myrelease http://www.koslib.com/mycharts/servicetpl-0.4.2.tgz -f .values.yaml --set image.tag=${{ github.sha }} --wait
+    
