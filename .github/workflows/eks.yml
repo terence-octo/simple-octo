@@ -24,8 +24,8 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
 
-      - name: helm deploy
-        uses: koslibpro/helm-eks-action@master
+    - name: helm deploy
+      uses: koslibpro/helm-eks-action@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
