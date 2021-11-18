@@ -24,4 +24,10 @@ node {
             app.push("latest")
         }
     }
+    
+        stage('Create and Deploy Release') {
+        octopusCreateRelease additionalArgs: '', cancelOnTimeout: false, channel: '', defaultPackageVersion: '', deployThisRelease: false, deploymentTimeout: '', environment: "Production", jenkinsUrlLinkback: false, project: "jenkins-octo", releaseNotes: false, releaseNotesFile: '', releaseVersion: "1.0.${BUILD_NUMBER}", tenant: '', tenantTag: '', toolId: 'Default', verboseLogging: false, waitForDeployment: false
+        octopusDeployRelease cancelOnTimeout: false, deploymentTimeout: '', environment: "Production", project: "jenkins-octo", releaseVersion: "1.0.${BUILD_NUMBER}", tenant: '', tenantTag: '', toolId: 'Default', variables: '', verboseLogging: false, waitForDeployment: true
+            
+    }
 }
