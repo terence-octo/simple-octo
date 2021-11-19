@@ -8,7 +8,7 @@ node {
     stage('Build image') {
         /* Referencing the image name in AWS */
 
-        app = docker.build("jenkins-ecr")
+        app = docker.build("jenkins-ecr-2")
     }
     
     stage('Test image') {
