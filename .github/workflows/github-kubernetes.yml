@@ -47,4 +47,4 @@ jobs:
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: us-east-2
         cluster_name: my-cluster-cli
-        args: set image --record deployment/hello-node
+        args: set image --record deployment/$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
