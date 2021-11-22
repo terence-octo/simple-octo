@@ -40,6 +40,11 @@ jobs:
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
     
     
-    - name: Deploy to Kubernetes cluster                                                                            
-      run:
-       sh 'kubectl apply -f git-deployment.yml'
+    - name: Update deployment
+      uses: ianbelcher/eks-kubectl-action@master
+      with:
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: us-east-2
+        cluster_name: "https://BF669D7DE0982837BD40598A57E4EB04.gr7.us-east-2.eks.amazonaws.com"
+        args: set image --namespace 'default --record deployment/DEPLOYMENT_NAME DEPLOYMENT_NAME=${{ steps.build.outputs.IMAGE_URL }
