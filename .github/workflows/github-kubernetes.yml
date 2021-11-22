@@ -52,4 +52,3 @@ jobs:
       with:                                                            
         args: rollout status deploy my-pod -n 'production'
 
-
