@@ -47,4 +47,4 @@ jobs:
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: us-east-2
         cluster_name: "https://BF669D7DE0982837BD40598A57E4EB04.gr7.us-east-2.eks.amazonaws.com"
-        args: set image --namespace 'default' --record deployment/DEPLOYMENT_NAME DEPLOYMENT_NAME=${{ steps.build.outputs.IMAGE_URL }
+        args: set image --namespace 'default' --record deployment/DEPLOYMENT_NAME DEPLOYMENT_NAME=${{ steps.build.outputs.IMAGE_URL }}
