@@ -52,4 +52,4 @@ jobs:
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: us-east-2
         cluster_name: my-cluster-cli
-        args: set image --record deployment/$DEPLOYMENT
+        args: set image --record deployment/pod-name pod-name=$DEPLOYMENT
