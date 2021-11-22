@@ -14,7 +14,7 @@ env:
   
 jobs:                                            
   release:                                       
-    name: Release                                
+    name: Release Git                                
     runs-on: ubuntu-latest                       
     steps:                                       
 
