@@ -13,8 +13,9 @@ env:
   KUBE_NAMESPACE: production
   ECR_REPOSITORY: github-ecr
   
+  
 jobs:                                            
-  release:                                       
+  deploy:                                       
     name: Release Git                                
     runs-on: ubuntu-latest                       
     steps:                                       
