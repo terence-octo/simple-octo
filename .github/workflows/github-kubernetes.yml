@@ -42,4 +42,4 @@ jobs:
     
     - name: Deploy to Kubernetes cluster                                                                            
       run:
-       sh 'kubectl apply -f giy-deployment.yml'
+       sh 'kubectl apply -f git-deployment.yml'
