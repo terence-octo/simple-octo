@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: simple-octo
-          image: jhttps://720766170633.dkr.ecr.us-east-2.amazonaws.com/jenkins-ecr
+          image: https://720766170633.dkr.ecr.us-east-2.amazonaws.com/jenkins-ecr
           ports:
             - containerPort: 80
               protocol: TCP
